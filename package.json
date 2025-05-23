@@ -1,0 +1,23 @@
+{
+  "name": "insidedataproject-3",
+  "version": "1.0.0",
+  "description": "A single-page web application that simulates an e-commerce store similar to Quill.com. The application features a dynamic product catalog, shopping cart functionality, and search capabilities.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShivaniVellanki/insidedataproject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShivaniVellanki/insidedataproject/issues"
+  },
+  "homepage": "https://github.com/ShivaniVellanki/insidedataproject#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
