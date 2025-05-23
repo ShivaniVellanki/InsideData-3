@@ -28,20 +28,21 @@ var customer = {
 
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('chatBtn').onclick = function () {
-      if (window.koreBot && window.koreChatCfg) {
-        window.koreChatCfg.botOptions.botInfo.customData = {
-          language: "french",
-          userId: "12345",
-          isReturningUser: true,
-          preferences: {
-            theme: "dark",
-            notifications: false
-          }
-        };
-        window.koreBot.show(window.koreChatCfg);
-      } else {
-        console.error('KoreBot or KoreChatCfg is not initialized');
-      }
+    //   if (window.koreBot && window.koreChatCfg) {
+    //     window.koreChatCfg.botOptions.botInfo.customData = {
+    //       language: "french",
+    //       userId: "12345",
+    //       isReturningUser: true,
+    //       preferences: {
+    //         theme: "dark",
+    //         notifications: false
+    //       }
+    //     };
+    //     window.koreBot.show(window.koreChatCfg);
+    //   } else {
+    //     console.error('KoreBot or KoreChatCfg is not initialized');
+    //   }
+    new KoreChatSDK.chatWindow().show(KoreChatSDK.chatConfig);
     };
   });
 
