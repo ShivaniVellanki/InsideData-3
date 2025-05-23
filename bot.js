@@ -15,6 +15,7 @@ botOptions.clientSecret = "e5WPiFqgun567KGjzq2LoUqvwnULI2q48/DrJnxdK1Q=";
 KoreChatSDK.chatConfig.botOptions.API_KEY_CONFIG.KEY = "9cb93b446f3744c0b678238a901b8aa18f904e3593184563a7e00e53d305ff8cstcd";
 
 chatConfig.branding.chat_bubble.style.display = "none";
+chatConfig.minimizeMode = "false";
 
 var customer = {
     "name": "Shivani Vellanki",
@@ -41,8 +42,11 @@ var customer = {
     //     window.koreBot.show(window.koreChatCfg);
     //   } else {
     //     console.error('KoreBot or KoreChatCfg is not initialized');
+    
     //   }
-    new KoreChatSDK.chatWindow().show(KoreChatSDK.chatConfig);
+    chatConfig.branding.chat_bubble.style.display = "none";
+    chatConfig.minimizeMode = "false";
+    new KoreChatSDK.chatWindow().show(chatConfig);
     };
   });
 
