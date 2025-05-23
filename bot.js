@@ -13,21 +13,25 @@ document.addEventListener('DOMContentLoaded', function () {
     botOptions.clientSecret = "e5WPiFqgun567KGjzq2LoUqvwnULI2q48/DrJnxdK1Q=";
     chatConfig.botOptions.API_KEY_CONFIG.KEY = "9cb93b446f3744c0b678238a901b8aa18f904e3593184563a7e00e53d305ff8cstcd";
 
+    // ✅ Completely disable bubble and avoid minimize mode
     chatConfig.branding = chatConfig.branding || {};
-    chatConfig.branding.chat_bubble = { style: { display: "none" } }; // hide bubble
+    chatConfig.branding.chat_bubble = { style: { display: "none" } };
     chatConfig.minimizeMode = false;
 
-    // ✅ Create chat instance ONCE
+    // ✅ Show the chat ONCE (only now)
     const instance = new KoreChatSDK.chatWindow().show(chatConfig);
 
-    // ✅ On "Chat" button click, simulate bubble click to open full window
+    // ✅ On button click, manually simulate chat open
     document.getElementById('chatBtn').onclick = function () {
-        setTimeout(() => {
-            try {
-                KoreChatSDK.dependencies.jQuery('.kore-chat-window .minimized').click();
-            } catch (err) {
-                console.error('Chat open trigger failed:', err);
+        const checkReady = setInterval(() => {
+            if (KoreChatSDK.dependencies?.jQuery) {
+                try {
+                    KoreChatSDK.dependencies.jQuery('.kore-chat-window .minimized').click();
+                    clearInterval(checkReady);
+                } catch (err) {
+                    console.error("Error opening chat window:", err);
+                }
             }
-        }, 500);
+        }, 300);
     };
 });
