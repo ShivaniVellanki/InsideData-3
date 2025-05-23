@@ -25,22 +25,26 @@ var customer = {
 
 
 // <!-- Chat button logic -->
-//<script>
-  document.getElementById('chatBtn').onclick = function () {
-    // Set any custom JSON object
-    window.koreChatCfg.botOptions.botInfo.customData = {
-      language: "french",
-      userId: "12345",
-      isReturningUser: true,
-      preferences: {
-        theme: "dark",
-        notifications: false
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('chatBtn').onclick = function () {
+      if (window.koreBot && window.koreChatCfg) {
+        window.koreChatCfg.botOptions.botInfo.customData = {
+          language: "french",
+          userId: "12345",
+          isReturningUser: true,
+          preferences: {
+            theme: "dark",
+            notifications: false
+          }
+        };
+        window.koreBot.show(window.koreChatCfg);
+      } else {
+        console.error('KoreBot or KoreChatCfg is not initialized');
       }
     };
+  });
 
-    window.koreBot.show(window.koreChatCfg);
-  };
-//</script>
 
 // KoreChatSDK.chatConfig.botOptions.botInfo.customData = { customer };
 // chatWindowInstance.show(KoreChatSDK.chatConfig);
