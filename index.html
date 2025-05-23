@@ -6,9 +6,45 @@
     <title>Quill-like Store</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      .header-bar {
+        background-color: #2563eb;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        color: white;
+      }
+      .header-logo {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .search-container {
+        display: flex;
+        align-items: center;
+      }
+      .search-container input {
+        padding: 5px;
+        margin-right: 5px;
+      }
+      .header-actions {
+        display: flex;
+        align-items: center;
+      }
+      .chat-btn {
+        background-color: white;
+        color: #2563eb;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    </style>
 </head>
 <body>
-    <header>
+    <!-- <header>
         <nav>
             <div class="logo">Store</div>
             <div class="search-container">
@@ -20,7 +56,22 @@
                 <span id="cartCount">0</span>
             </div>
         </nav>
-    </header>
+    </header> -->
+     <!-- Header Bar -->
+  <div class="header-bar">
+    <div class="header-logo">
+      <svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#2563eb"/><text x="16" y="22" text-anchor="middle" font-size="18" fill="#fff" font-family="Arial, Helvetica, sans-serif">Q</text></svg>
+      Quill
+    </div>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search products...">
+        <button id="searchButton"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="header-actions">
+      <span class="header-phone" style="font-size:15px;font-weight:500;color:#fff;margin-right:18px;letter-spacing:0.5px;">1-800-982-3400</span>
+      <button id="chatBtn" class="chat-btn">Chat</button>
+    </div>
+  </div>
 
     <main>
         <div class="products-grid" id="productsGrid">
@@ -43,6 +94,23 @@
     <script src="script.js"></script>
     <script src='https://cdn.jsdelivr.net/npm/kore-web-sdk@11.13.0/dist/umd/kore-web-sdk-umd-chat.min.js'></script> 
     <script src= "bot.js" ></script>
+      <!-- Chat button logic -->
+  <script>
+    document.getElementById('chatBtn').onclick = function () {
+      // Set any custom JSON object
+    //   window.koreChatCfg.botOptions.botInfo.customData = {
+    //     language: "french",
+    //     userId: "12345",
+    //     isReturningUser: true,
+    //     preferences: {
+    //       theme: "dark",
+    //       notifications: false
+    //     }
+    //   };
+  
+      window.koreBot.show(window.koreChatCfg);
+    };
+  </script>
 
 </body>
 </html> 

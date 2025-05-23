@@ -22,8 +22,28 @@ var customer = {
     "phone": "1234567890",
     "address": "123 Main St, Anytown, USA"
 }
-KoreChatSDK.chatConfig.botOptions.botInfo.customData = { customer };
-chatWindowInstance.show(KoreChatSDK.chatConfig);
+
+
+// <!-- Chat button logic -->
+//<script>
+  document.getElementById('chatBtn').onclick = function () {
+    // Set any custom JSON object
+    window.koreChatCfg.botOptions.botInfo.customData = {
+      language: "french",
+      userId: "12345",
+      isReturningUser: true,
+      preferences: {
+        theme: "dark",
+        notifications: false
+      }
+    };
+
+    window.koreBot.show(window.koreChatCfg);
+  };
+//</script>
+
+// KoreChatSDK.chatConfig.botOptions.botInfo.customData = { customer };
+// chatWindowInstance.show(KoreChatSDK.chatConfig);
 
 // Fetch customer and initialize chat
 // fetch('/api/customer')
